@@ -1,0 +1,693 @@
+html, body {
+   margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh; /* Asegura que el cuerpo siempre mida al menos el alto de la pantalla */
+    display: flex;
+    flex-direction: column;
+}
+
+:root{
+    --azul:#2979ff;
+    --nav-height: 90px;
+}
+
+body {
+    background-color: black; /* Esto ayuda a que si hay un micro-espacio, no desentone con el fondo */
+    overflow-x: hidden;
+    margin: 0;
+}
+
+/* Añadir padding sólo cuando la página tiene navbar fijo */
+body.has-fixed-navbar {
+    padding-top: var(--nav-height); /* Reserva espacio para el navbar fijo */
+    transition: padding-top 0.28s ease;
+}
+
+/* Cuando el navbar está oculto también quitamos el padding para que el contenido suba */
+body.has-fixed-navbar.navbar-hidden {
+    padding-top: 0;
+}
+
+.fondo{
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("fondo1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5.5px) brightness(0.6);
+    z-index: -1;
+}
+
+.fondo1{
+    background-color: black;
+}
+
+.textoB img{
+    height: 135px;
+    width: auto;
+    transition: 0.3s;
+    transform: translateY(20px);
+}
+
+.textoB img:hover{
+    transform: translateY(15px) scale(1.05);
+}
+
+
+.portada{
+    width: 100%;
+    height: 550px;
+    position: center;
+    margin-top: 35px;
+    padding-top: 0;
+}
+
+.myv{
+    background-color: black;
+    color: white;
+    text-align: center;
+    
+    /* Truco para ancho total */
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    
+    /* Aumentamos el espacio interno */
+    padding: 100px 20px; 
+    box-sizing: border-box;
+}
+.myv h2{
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.myv p{
+    font-size: 17px;
+    font-family: monospace;
+    transition: all 0.3s ease;
+}
+
+.myv p:hover{
+    transform: scale(1.05);
+    color: rgb(14, 10, 214);
+    font-family:cursive;
+    font-size:19px ;
+    text-shadow: 
+     0 0 3px #210c99,
+        0 0 6px #0f2cad;
+}
+
+.piedPagina{
+   background-color: white !important;
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    
+    /* CAMBIO: Eliminamos cualquier margen que empuje hacia arriba */
+    margin-bottom: 0 !important; 
+    padding: 30px 0 0 0; /* Quitamos el padding de abajo aquí... */
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+
+}
+
+.piedPagina h3 {
+    font-size: 16px; /* Títulos más pequeños */
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.piedPagina p, .piedPagina a {
+    font-size: 13px; /* Texto de enlaces más pequeño */
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+/* Ajuste específico para la columna de "Urgencias" (clase .hola) */
+.hola h3 {
+    margin-bottom: 10px;
+}
+.hola p {
+    margin: 5px 0; /* Elimina el exceso de saltos de línea */
+}
+
+.pReferencia a img{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin: 10px;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.pReferencia a img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--azul);
+}
+
+.pReferencia,
+.redesSociales,
+.contacto{
+    flex: 1;                /* Cada columna ocupa el mismo espacio */
+    min-width: 200px;       /* Pero no se encogen demasiado */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contacto{
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contacto img{
+    width: 100px;
+    height: 100px;
+    transition: 0.3;
+}
+
+.contacto img:hover{
+    transform: scale(1.1);
+}
+
+.redesSociales a img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin: 10px;
+    transition: 0.3s;
+    border-radius: 10px;
+    
+}
+
+.redesSociales a img:hover{
+    transform: scale(1.2);
+    filter: brightness(1.2);
+     box-shadow: 0 0 10px var(--azul);
+}
+
+.copy{
+   width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0 !important; /* Cero margen externo */
+    padding-bottom: 30px;        /* ...y lo ponemos como padding interno */
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 12px;
+    background-color: white;     /* Asegura que el fondo del copy sea blanco */
+}
+
+.hola{
+    flex-direction: column;
+    font-size: 13px;
+    margin: 0px;
+    color: black;
+}
+
+.productos-destacados {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    padding: 30px 20px 20px 20px;
+}
+
+.productos-destacados .titulo-seccion {
+    margin-top: 10px; /* acerca el título al banner */
+    margin-bottom: 15px;
+}
+
+.contenedor-productos {
+    display: flex;       
+    flex-wrap: wrap;    
+    justify-content: center;
+    gap: 20px;
+}
+
+.producto-card {
+    background: rgba(0, 0, 0, 0.85); 
+    border: 2px solid var(--azul);
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;           
+    text-align: center;
+    color: white;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between; 
+    transition: 0.3s;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.producto-card:hover {
+    box-shadow: 0px 0px 20px rgba(41, 121, 255, 0.7); /* Brillo cian */
+    border-color: white; /* El borde cambia a blanco suavemente */
+}
+
+
+.producto-card img {
+    width: 100%;
+    height: 200px;          
+    object-fit: contain;    
+    background: white; 
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.producto-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    min-height: 50px; 
+}
+
+.producto-card p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 15px;               
+    padding: 20px;
+    width: 100%;
+}
+
+
+
+.btn-comprar {
+    background: var(--azul);
+    color: black;
+    border: none;
+    padding: 8px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-comprar:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 15px white; /* Brillo blanco en el botón */
+}
+
+.titulo-seccion {
+    color: white;             /* O 'black' si tu fondo general es claro */
+    text-align: center;       /* Lo centramos respecto a la página */
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;/* Espaciado entre letras para toque moderno */
+    margin-top: 100px;
+    margin-bottom: 20px;      /* Espacio para que no toque el banner */
+    font-family: sans-serif;
+    text-transform: uppercase; /* Todo en mayúsculas como pediste */
+}
+
+
+#titulo-popular {
+    font-size: 45px; /* Título más grande */
+    font-family: 'Montserrat', 'Arial Black', sans-serif; /* Fuente más potente si tienes */
+    margin-bottom: 15px;
+    /* Quitamos cualquier restricción de ancho específica del título */
+    width: 100%; 
+    line-height: 1.2;
+}
+
+#desc-popular {
+    width: 90%; /* La descripción puede ser un poco más corta que el título para que se vea ordenado */
+}
+.btn-ver {
+    background: var(--azul);
+    color: black;
+    border: none;
+    padding: 12px 28px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+.btn-ver:hover {
+    background-color: white;
+    color: var(--azul);
+    box-shadow: 0px 0px 15px var(--azul);
+    transform: scale(1.05); /* Se agranda un poquito */
+}
+
+.texto-izquierdo {
+    color: #1d1d1f; /* Un negro elegante, no tan fuerte */
+    width: 65%;
+    padding-left: 50px;
+    text-align: left;
+}
+
+/* 2. La imagen: le damos su propio tamaño fijo */
+#img-popular {
+    width: 65%;           /* ¡Ocupa más de la mitad del banner! */
+    height: 380px;        /* Altura mayor para que se vea imponente */
+    object-fit: contain;  /* Mantiene las proporciones de la laptop */
+    display: block;
+    margin-left: auto;    /* La empuja hacia la derecha */
+}
+/* 3. El contenedor: repartimos el espacio de forma fija */
+.contenido {
+    display: flex;
+    justify-content: space-between; /* Texto a la izquierda, imagen a la derecha */
+    align-items: center;            /* Centrado vertical */
+    
+    width: 100%;       /* ¡Que use todo el ancho del banner blanco! */
+    padding: 0 20px;   /* Un mínimo margen de seguridad en los bordes */
+}
+
+
+
+.indicadores {
+    text-align: center;
+    padding-bottom: 10px;
+}
+.punto {
+    color: gray;
+    font-size: 50px;
+    margin: 0 10px;
+}
+
+.punto.activa {
+    color: cyan;
+}
+.video{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 40px 40px 10px 40px;
+}
+
+.video video{
+    width: 1150px;
+    border-radius: 12px;
+     box-shadow: 0 0 20px greenyellow;
+}
+
+.video video:hover{
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+.video2{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 40px 40px 10px 40px;
+}
+
+.video2 video{
+    width: 1150px;
+    border-radius: 12px;
+     box-shadow: 0 0 30px rgb(247, 103, 0);
+}
+
+.video2 video:hover{
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+.banner img{
+    width: 1000px;
+    height: 120px;
+    transition: transform 0.5s ease;
+}
+
+.banner{
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+    overflow: hidden;
+}
+
+.banner1 img{
+    width: 1000px;
+    height: 120px;
+    transition: transform 0.5s ease;
+}
+
+.banner1{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
+}
+.banner1,
+.banner-mejorado {
+    margin: 0 auto 20px auto; /* sube el banner */
+}
+
+.banner1 img:hover{
+    transform: scale(1.02);
+}
+
+.banner img:hover{
+    transform: scale(1.02);
+}
+
+.ubicacion{
+    text-align: center;
+    padding: 50px 50px 0 50px; /* Reducimos el padding inferior a 0 */
+    color: white;
+    margin-bottom: 0; /* Forzamos que no haya separación con el footer */
+
+}
+
+.ubicacion h2{
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.mapa{
+    max-width: 900px;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mapa iframe{
+    transition: all 0.3s ease;
+    margin-bottom:40px ;
+}
+
+.mapa iframe:hover{
+    transform:translateY(-5px);
+}
+
+.nosotros{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.card{
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px black;
+}
+
+.ubicon{
+    color: black;
+    font-family:monospace ;
+}
+
+.letracon{
+    color: black;
+    font-family: monospace;
+}
+
+.custom-navbar{
+    background: rgba(15,15,15,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid blue;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding: 2px 20px;
+    z-index: 2000;
+    transition: transform 0.28s ease;
+    will-change: transform;
+}
+
+/* Clase aplicada cuando queremos ocultar el navbar (scroll down) */
+.custom-navbar.nav-hidden,
+.navclas.nav-hidden{
+    transform: translateY(-100%);
+}
+
+.logo{
+    width: 110px;
+}
+
+.nav-link{
+    color: white !important;
+    font-size: 17px;
+    margin: 0 10px;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.nav-link:hover{
+    color: blue !important;
+    transform: translateY(-2px);
+}
+
+.buscador input{
+    border-radius: 20px;
+    color: var(--azul);
+}
+
+.buscador button{
+    border-radius: 20px;
+    color: var(--azul);
+}
+
+.buscar-btn{
+    border: 2px solid red;
+    color: var(--azul);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.buscar-btn:hover{
+    background-color: red;
+    color: white;
+    box-shadow: 0 0 15px blue;
+}
+
+.carousel{
+    width: 90%;
+    margin: 40px auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carousel-inner{
+    border-radius: 15px;
+}
+
+.carousel-item{
+    background-color: black;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* Estilo para el Navbar Simple (Páginas Secundarias) */
+.navclas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 50px; /* Reducimos padding vertical para que el logo mande el alto */
+    min-height: 90px;  /* Le damos una altura mínima sólida */
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--azul);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    box-sizing: border-box;
+    transition: transform 0.28s ease;
+    will-change: transform;
+}
+
+.navclas .textoB {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ocupa todo el alto del nav */
+}
+
+.navclas .textoB img {
+    height: 80px; /* Aumentamos el tamaño (estaba en 60px) */
+    width: auto;
+    transform: translateY(0); /* IMPORTANTE: Quitamos el empuje hacia abajo */
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* Efecto hover limpio */
+.navclas .textoB img:hover {
+    transform: scale(1.1); /* Solo crece, no se mueve de posición */
+}
+
+.menu1 {
+    list-style: none; /* Quita los puntitos de la lista */
+    margin: 0;
+    padding: 0;
+}
+
+.menu1 li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid var(--azul);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.menu1 li a:hover {
+    background-color: var(--azul);
+    color: black;
+    box-shadow: 0 0 15px var(--azul);
+}
+
+.videoiphone{
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+    align-items: center;
+    width: 100%;
+}
+
+.videoiphone video{
+    width: 90%;
+    max-width: 500px;        /* Límite para que no se vea gigante en PC */
+    border-radius: 15px;     /* Bordes redondeados como tus tarjetas */
+    border: 2px solid white; /* Borde blanco para destacar */
+    box-shadow: 0 0 15px white; /* Efecto de brillo simple */
+    transition: all 0.4s ease;
+}
+
+.videoiphone video:hover {
+    transform: scale(1.02);  /* Crece un poquito */
+    box-shadow: 0 0 25px var(--azul); /* El brillo se intensifica */
+    filter: brightness(1.1); /* Se aclara ligeramente */
+}   
